@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage">
+
+    <StackLayout Padding="10" BackgroundColor="Black" Spacing="10">
+        <Button Text="GetCars" Clicked="Button_Clicked" BackgroundColor="Red" TextColor="White" Margin="0,0,0,10" HorizontalOptions="Center" WidthRequest="250" />
+        <ScrollView Orientation="Horizontal">
+            <StackLayout Spacing="0">
+                <Grid ColumnSpacing="15" Padding="10" BackgroundColor="#222222">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Label 
+                        Text="CarName =" 
+                        TextColor="Blue" 
+                        FontAttributes="Bold" 
+                        Grid.Column="0"/>
+                    <Label 
+                        Text="CarYear =" 
+                        TextColor="Blue" 
+                        FontAttributes="Bold" 
+                        Grid.Column="1"/>
+                    <Label 
+                        Text="CarPrice =" 
+                        TextColor="Blue" 
+                        FontAttributes="Bold" 
+                        Grid.Column="2"/>
+                    <Label Text="CarEngineSize =" 
+                           TextColor="Blue" 
+                           FontAttributes="Bold" 
+                           Grid.Column="3"/>
+
+                </Grid>
+                <CollectionView x:Name="CarData" HeightRequest="600" BackgroundColor="Black" SelectionChanged="CarData_SelectionChanged" SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnSpacing="20" Padding="10" BackgroundColor="#1a1a1a" Margin="0,0,0,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding CarBrand}" Grid.Column="0" TextColor="White"/>
+                                <Label Text="{Binding CarYear}" Grid.Column="1" TextColor="LightGray"/>
+                                <Label Text="{Binding CarPrice}" Grid.Column="2" TextColor="White"/>
+                                <Label Text="{Binding CarEngineSize}" Grid.Column="3" TextColor="LightGray"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

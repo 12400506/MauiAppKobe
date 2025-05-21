@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibrary1.Data.Framework;
+using ClassLibrary1;
 
 namespace MauiAppKobe.Data
 {
@@ -18,7 +20,7 @@ namespace MauiAppKobe.Data
 
         public string TableName { get; set; }
 
-        public SelectResult Select()
+        public SelectResult Select()    
         {
             return base.Select(TableName);
         }
@@ -36,10 +38,10 @@ namespace MauiAppKobe.Data
                 using (SqlCommand insertCommand = new SqlCommand(insertQuery.ToString()))
                 {
                     insertCommand.Parameters.Add("@CarId", SqlDbType.NVarChar).Value = car.Id;
-                    insertCommand.Parameters.Add("@CarBrand", SqlDbType.Decimal).Value = car.CarBrand;
-                    insertCommand.Parameters.Add("@CarYear", SqlDbType.Int).Value = car.CarYear;
-                    insertCommand.Parameters.Add("@CarPrice", SqlDbType.NVarChar).Value = car.CarPrice;
-                    insertCommand.Parameters.Add("@CarEngineSize", SqlDbType.NVarChar).Value = car.CarEngineSize;
+                    insertCommand.Parameters.Add("@CarBrand", SqlDbType.Decimal).Value = car.Merk;
+                    insertCommand.Parameters.Add("@CarYear", SqlDbType.Int).Value = car.Bouwjaar;
+                    insertCommand.Parameters.Add("@CarPrice", SqlDbType.NVarChar).Value = car.Prijs;
+                    insertCommand.Parameters.Add("@CarEngineSize", SqlDbType.NVarChar).Value = car.Motorinhoud;
 
                     result = InsertRecord(insertCommand);
                 }

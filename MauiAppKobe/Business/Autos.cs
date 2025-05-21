@@ -7,7 +7,13 @@ namespace ClassLibrary1
 {
     public static class Cars
     {
-        public static InsertResult Add(Car car)
+
+        public static SelectResult GetCars()
+        {
+            var carData = new CarData();
+            return carData.Select();
+        }
+        public static InsertResult AddCars(Car car)
         {
             
             CarData carData = new CarData();
